@@ -10,12 +10,15 @@ public class FieldPlacing : MonoBehaviour
     bool isPlacing = FieldPlacingBtnHandler.isPlacingFields;
     void Update()
     {
+        Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+
         isPlacing = FieldPlacingBtnHandler.isPlacingFields;
         if (isPlacing)
         {
-            nowePole.transform.position = Input.mousePosition;
+            nowePole.transform.position = worldPosition;
             if (Input.GetMouseButtonDown(0))
-                Instantiate(nowePole, Input.mousePosition, Quaternion.identity);
+                Instantiate(nowePole, worldPosition, Quaternion.identity);
         }
     }
 }
