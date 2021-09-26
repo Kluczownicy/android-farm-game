@@ -17,7 +17,7 @@ public class FieldPlacing : MonoBehaviour
         if (isPlacing)
         {
             nowePole.transform.position = worldPosition;
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonUp(0))
                 Instantiate(nowePole, worldPosition, Quaternion.identity);
         }
     }
